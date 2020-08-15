@@ -10,6 +10,8 @@ import './index.css';
 
 export default class App extends Component {
 
+  maxID = 1000;
+  
   state = {
 	todoData: [
     { label: 'Drink Coffee', important: false, id: 1 },
@@ -30,8 +32,23 @@ export default class App extends Component {
   }
   
   addItem = (text) => {
-	  console.log("add text: ", text);
-  }
+	 const newItem = {
+		 label: text,
+		 important: false,
+		 id: this.maxID++
+	 }
+	 
+	 this.setState( ( { todoData} ) => {
+	 const newArr = [
+		 ... todoData,
+		 newItem
+	 ];
+	 
+	 return {
+		todoData: newArr 
+	 };
+	 });
+  };
  
   render() {
   return (
