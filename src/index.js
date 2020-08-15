@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import AppHeader from './app-header';
-import SearchPanel from './search-panel';
-import TodoList from './todo-list';
-import ItemStatusFilter from './item-status-filter';
-import ItemAddForm from './item-add-form';
+import AppHeader from './Components/app-header';
+import SearchPanel from './Components/search-panel';
+import TodoList from './Components/todo-list';
+import ItemStatusFilter from './Components/item-status-filter';
+import ItemAddForm from './Components/item-add-form';
 import './index.css';
 
 export default class App extends Component {
@@ -28,6 +28,10 @@ export default class App extends Component {
 	  }  
 	  );
   }
+  
+  addItem = (text) => {
+	  console.log("add text: ", text);
+  }
  
   render() {
   return (
@@ -42,6 +46,8 @@ export default class App extends Component {
 	 // onDeleted= { (id) => console.log("delete id ", id)
       onDeleted= { this.deleteItem }
 	  />
+	  
+	  <ItemAddForm onItemAdded={this.addItem} />
     </div>
   );
   }
