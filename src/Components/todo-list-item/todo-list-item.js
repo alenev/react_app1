@@ -11,7 +11,6 @@ export default class TodoListItem extends Component {
           onToggleDone, onToggleImportant,
 		  important, done } = this.props;
 		  
-  const { done, important } = this.state;
   let classNames = "todo-list-item";
   if (done) { classNames += " done"; }
   if (important) { classNames += " important";}
