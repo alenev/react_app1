@@ -49,6 +49,14 @@ export default class App extends Component {
 	 };
 	 });
   };
+  
+  onToggleImportant = (id) => {
+	  console.log('important: ', id);
+  };
+  
+  onToggleDone = (id) => {
+	  console.log('done: ',id);
+  };
  
   render() {
   return (
@@ -60,7 +68,8 @@ export default class App extends Component {
       </div>
 
       <TodoList todos={this.state.todoData} 
-	 // onDeleted= { (id) => console.log("delete id ", id)
+      onToggleImportant = {this.onToggleImportant}
+	  onToggleDone = {this.onToggleDone}
       onDeleted= { this.deleteItem }
 	  />
 	  
